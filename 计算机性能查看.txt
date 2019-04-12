@@ -1,22 +1,23 @@
 #!/bin/bash
-#¼ÆËã»úĞÔÄÜÊı¾İ²é¿´
+#è®¡ç®—æœºæ€§èƒ½æ•°æ®æŸ¥çœ‹
 ip=$(ifconfig eth0 | awk '/inet /{print $2}')
-echo "±¾»úIPµØÖ·ÊÇ£º$ip"
+echo "æœ¬æœºIPåœ°å€æ˜¯ï¼š$ip"
 net_in=`ifconfig eth0 | awk '/RX p/{print $5}'`
-echo "ÈëÕ¾Á÷Á¿Îª£º$net_in"
+echo "å…¥ç«™æµé‡ä¸ºï¼š$net_in"
 net_out=`ifconfig eth0 | awk '/TX p/{print $5}'`
-echo "·¢ËÍÁ÷Á¿Îª£º$net_out"
+echo "å‘é€æµé‡ä¸ºï¼š$net_out"
 cpu=`uptime | awk '{print $10}'`
-echo "CPU×î½ü5·ÖÖÓÆ½¾ù¸ºÔØÎª£º $cpu"
+echo "CPUæœ€è¿‘5åˆ†é’Ÿå¹³å‡è´Ÿè½½ä¸ºï¼š $cpu"
 mem=`free | awk '/Mem/{print $4}'`
-echo "ÄÚ´æÊ£Óà¿Õ¼ä£º$mem"
+echo "å†…å­˜å‰©ä½™ç©ºé—´ï¼š$mem"
 disk=`df | awk '/\/$/{print $4}'`
-echo "´ÅÅÌ¿ÉÓÃ¿Õ¼äÎª£º$disk "
+echo "ç£ç›˜å¯ç”¨ç©ºé—´ä¸ºï¼š$disk "
 coun_com=`cat /etc/passwd |wc -l`
-echo "µ±Ç°¼ÆËã»úÕË»§ÊıÁ¿Îª£º $coun_com"
+echo "å½“å‰è®¡ç®—æœºè´¦æˆ·æ•°é‡ä¸ºï¼š $coun_com"
 who_num=`who |wc -l`
-echo "µ±Ç°¼ÆËã»úµÇÂ½ÈËÊıÎª£º $who_num ÈË"
+echo "å½“å‰è®¡ç®—æœºç™»é™†äººæ•°ä¸ºï¼š $who_num äºº"
 progress=`ps aux |wc -l`
-echo "µ±Ç°¼ÆËã»úÆô¶¯½ø³ÌÊıÁ¿Îª£º$progress"
+echo "å½“å‰è®¡ç®—æœºå¯åŠ¨è¿›ç¨‹æ•°é‡ä¸ºï¼š$progress"
 soft=`rpm -qa | wc -l`
-echo "µ±Ç°¼ÆËã»ú°²×°Èí¼şÊıÁ¿Îª£º $soft"
+echo "å½“å‰è®¡ç®—æœºå®‰è£…è½¯ä»¶æ•°é‡ä¸ºï¼š $soft"
+#end
