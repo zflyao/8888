@@ -1,0 +1,22 @@
+#!/bin/bash
+#计算机性能数据查看
+ip=$(ifconfig eth0 | awk '/inet /{print $2}')
+echo "本机IP地址是：$ip"
+net_in=`ifconfig eth0 | awk '/RX p/{print $5}'`
+echo "入站流量为：$net_in"
+net_out=`ifconfig eth0 | awk '/TX p/{print $5}'`
+echo "发送流量为：$net_out"
+cpu=`uptime | awk '{print $10}'`
+echo "CPU最近5分钟平均负载为： $cpu"
+mem=`free | awk '/Mem/{print $4}'`
+echo "内存剩余空间：$mem"
+disk=`df | awk '/\/$/{print $4}'`
+echo "磁盘可用空间为：$disk "
+coun_com=`cat /etc/passwd |wc -l`
+echo "当前计算机账户数量为： $coun_com"
+who_num=`who |wc -l`
+echo "当前计算机登陆人数为： $who_num 人"
+progress=`ps aux |wc -l`
+echo "当前计算机启动进程数量为：$progress"
+soft=`rpm -qa | wc -l`
+echo "当前计算机安装软件数量为： $soft"
