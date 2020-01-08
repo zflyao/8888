@@ -1,0 +1,12 @@
+Tomcat服务器报错：too many open files
+#ulimit -n
+ 65535
+正常来说够用了。接着通过查看运行状态，uptime：
+查看到283天没有重启过
+查看Tomcat进程运行时间：
+ps -eo pid,lstart,etime | grep tomcat_pid
+发现已经启动77天多了，接着查看limits.conf文件修改时间
+70天前修改的
+之后服务器没有重启过，Tomcat也没有重启过，这就导致资源限制对Tomcat不生效
+
+重启服务即可
